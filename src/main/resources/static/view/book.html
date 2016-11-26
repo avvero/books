@@ -1,0 +1,21 @@
+<a ng-href="#/book"><-- к списку</a>
+<hr/>
+<h3>Изменение</h3>
+<hr/>
+<form name="bookForm">
+    <table>
+        <tr>
+            <td>Название</td>
+            <td><input ng-model="book.title" required></td>
+        </tr>
+        <tr>
+            <td>Автор</td>
+            <td><input ng-model="book.author" required></td>
+        </tr>
+        <tr>
+            <td>Год выпуска</td>
+            <td><input type="date" ng-model="book.published" required></td>
+        </tr>
+    </table>
+    <button ng-click="save()" ng-disabled="bookForm.$invalid">Изменить</button> <span ng-if="bookForm.$invalid">(Чтобы добавить заполните все поля)</span>
+</form>

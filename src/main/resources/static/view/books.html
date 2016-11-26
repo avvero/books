@@ -1,0 +1,24 @@
+<h3>Книги</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Автор</th>
+        <th>Год выпуска</th>
+    </tr>
+    <tr ng-repeat="book in books">
+        <td><a ng-href="#/book/{{book.id}}">{{book.id}}</a></td>
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.published | date:'dd.MM.yyyy'}}</td>
+        <td><button ng-click="open(book)">Изменить</button></td>
+        <td><button ng-click="delete(book)">Удалить</button></td>
+    </tr>
+</table>
+<hr/>
+<form name="bookForm">
+    Название: <input ng-model="newBook.title" required>
+    Автор: <input ng-model="newBook.author" required>
+    Год выпуска: <input type="date" ng-model="newBook.published" required>
+    <button ng-click="add()" ng-disabled="bookForm.$invalid">Добавить</button> <span ng-if="bookForm.$invalid">(Чтобы добавить заполните все поля)</span>
+</form>
